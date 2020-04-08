@@ -1,6 +1,8 @@
 #
 # Серверное приложение для соединений
 #
+import os
+import subprocess
 import asyncio
 from asyncio import transports
 
@@ -64,7 +66,9 @@ class Server:
         )
 
         print("Сервер на порту "+str(_)+" запущен ...")
-        print("Для входа используй в терминале команду ;\ntelnet 127.0.0.1 "+str(_))
+        print("Для входа используй, в терминале, команду ;\ntelnet 127.0.0.1 "+str(_))
+        sss = os.system("/usr/bin/curl ifconfig.me")
+        print(sss)
         await coroutine.serve_forever()
 
 
