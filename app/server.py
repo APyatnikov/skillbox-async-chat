@@ -56,15 +56,15 @@ class Server:
 
     async def start(self):
         loop = asyncio.get_running_loop()
-
+        _ = 8888
         coroutine = await loop.create_server(
             self.build_protocol,
             '127.0.0.1',
-            8888
+            _
         )
 
-        print("Сервер запущен ...")
-
+        print("Сервер на порту "+str(_)+" запущен ...")
+        print("Для входа используй в терминале команду ;\ntelnet 127.0.0.1 "+str(_))
         await coroutine.serve_forever()
 
 
